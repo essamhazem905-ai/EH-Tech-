@@ -1,0 +1,1767 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EH-Tech ⚡</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Cairo,sans-serif;
+}
+
+html{scroll-behavior:smooth}
+
+body{
+  background:#02050d;
+  color:#fff;
+  overflow-x:hidden;
+}
+
+/* خلفية متحركة */
+body::before,
+body::after{
+  content:"";
+  position:fixed;
+  width:450px;
+  height:450px;
+  border-radius:50%;
+  filter:blur(130px);
+  opacity:.18;
+  z-index:-5;
+  animation:orb 9s ease-in-out infinite alternate;
+}
+
+body::before{
+  background:#00eaff;
+  top:-180px;
+  right:-150px;
+}
+
+body::after{
+  background:#7c3cff;
+  bottom:-180px;
+  left:-150px;
+  animation-delay:2s;
+}
+
+@keyframes orb{
+  0%{transform:translate(0,0) scale(1)}
+  100%{transform:translate(-100px,100px) scale(1.3)}
+}
+
+/* نجوم */
+.stars{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-4;
+  background-image:
+    radial-gradient(#ffffff55 1px,transparent 1px),
+    radial-gradient(#00eaff44 1px,transparent 1px);
+  background-size:80px 80px,120px 120px;
+  animation:stars 20s linear infinite;
+}
+
+@keyframes stars{
+  to{background-position:300px 300px,-300px -300px}
+}
+
+/* NAV */
+nav{
+  position:fixed;
+  top:15px;
+  left:50%;
+  transform:translateX(-50%);
+  width:92%;
+  max-width:1200px;
+  padding:14px 22px;
+  border-radius:22px;
+  background:#07101de8;
+  border:1px solid #00eaff35;
+  backdrop-filter:blur(20px);
+  z-index:1000;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-size:25px;
+  font-weight:900;
+  color:#00eaff;
+  text-shadow:0 0 20px #00eaff;
+}
+
+nav a{
+  color:#b8c4d8;
+  text-decoration:none;
+  margin-right:18px;
+  font-size:13px;
+  transition:.3s;
+}
+
+nav a:hover{color:#00eaff}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:130px 20px 80px;
+  position:relative;
+}
+
+.hero-content{
+  animation:heroIn 1.2s ease;
+}
+
+@keyframes heroIn{
+  from{
+    opacity:0;
+    transform:translateY(40px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.badge{
+  display:inline-block;
+  padding:8px 18px;
+  border:1px solid #00eaff44;
+  border-radius:50px;
+  background:#00eaff0d;
+  color:#00eaff;
+  margin-bottom:15px;
+  animation:pulse 2s infinite;
+}
+
+.hero h1{
+  font-size:clamp(60px,13vw,125px);
+  font-weight:900;
+  background:linear-gradient(
+    90deg,
+    #fff,
+    #00eaff,
+    #8b5cf6,
+    #fff
+  );
+  background-size:300%;
+  -webkit-background-clip:text;
+  color:transparent;
+  animation:gradient 5s linear infinite;
+  filter:drop-shadow(0 0 30px #00eaff55);
+}
+
+@keyframes gradient{
+  to{background-position:300%}
+}
+
+.hero h2{
+  font-size:25px;
+  margin:5px 0 15px;
+}
+
+.hero p{
+  color:#8e9bb0;
+  max-width:700px;
+  margin:auto;
+  line-height:2;
+}
+
+.btn{
+  display:inline-block;
+  padding:13px 25px;
+  margin:15px 5px 0;
+  border-radius:15px;
+  text-decoration:none;
+  font-weight:900;
+  cursor:pointer;
+  border:1px solid #00eaff30;
+  transition:.35s;
+}
+
+.primary{
+  background:linear-gradient(135deg,#00eaff,#006eff);
+  color:#001017;
+  box-shadow:0 0 25px #00eaff35;
+}
+
+.secondary{
+  color:#fff;
+  background:#ffffff08;
+}
+
+.btn:hover{
+  transform:translateY(-5px) scale(1.04);
+  box-shadow:0 0 35px #00eaff55;
+}
+
+/* SECTIONS */
+section{
+  padding:90px 7%;
+}
+
+.title{
+  text-align:center;
+  margin-bottom:40px;
+}
+
+.title h2{
+  font-size:36px;
+}
+
+.title p{
+  color:#7f8ca2;
+  margin-top:8px;
+}
+
+/* SERVICE CARDS */
+.services{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+}
+
+.service-card{
+  position:relative;
+  overflow:hidden;
+  padding:38px 25px;
+  min-height:260px;
+  text-align:center;
+  border-radius:30px;
+  background:linear-gradient(145deg,#ffffff0c,#ffffff02);
+  border:1px solid #ffffff12;
+  cursor:pointer;
+  transition:.5s;
+}
+
+.service-card::before{
+  content:"";
+  position:absolute;
+  width:180px;
+  height:180px;
+  background:#00eaff;
+  filter:blur(80px);
+  opacity:.08;
+  top:-80px;
+  right:-80px;
+}
+
+.service-card:hover{
+  transform:translateY(-15px);
+  border-color:#00eaff70;
+  box-shadow:0 20px 70px #00eaff18;
+}
+
+.service-icon{
+  font-size:60px;
+  margin-bottom:15px;
+  animation:floatIcon 3s ease-in-out infinite;
+}
+
+@keyframes floatIcon{
+  50%{transform:translateY(-8px)}
+}
+
+.service-card h3{
+  font-size:23px;
+}
+
+.service-card p{
+  color:#8996aa;
+  line-height:1.9;
+  margin-top:8px;
+}
+
+/* CATALOG */
+.catalog{
+  display:none;
+  margin-top:50px;
+  animation:show .5s ease;
+}
+
+.catalog.active{display:block}
+
+@keyframes show{
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.catalog-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:25px;
+}
+
+.catalog-head h3{
+  color:#00eaff;
+  font-size:28px;
+}
+
+.back{
+  background:#ffffff08;
+  color:#fff;
+  border:1px solid #ffffff15;
+  padding:10px 17px;
+  border-radius:13px;
+  cursor:pointer;
+}
+
+/* COMPANIES */
+.company-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:20px;
+}
+
+.company-card{
+  position:relative;
+  overflow:hidden;
+  padding:30px 20px;
+  text-align:center;
+  border-radius:25px;
+  background:#ffffff07;
+  border:1px solid #ffffff12;
+  cursor:pointer;
+  transition:.45s;
+}
+
+.company-card::after{
+  content:"";
+  position:absolute;
+  width:120px;
+  height:120px;
+  background:#00eaff;
+  filter:blur(65px);
+  opacity:.06;
+  left:-50px;
+  bottom:-50px;
+}
+
+.company-card:hover{
+  transform:translateY(-10px) scale(1.02);
+  border-color:#00eaff70;
+  box-shadow:0 15px 50px #00eaff15;
+}
+
+.brand-logo{
+  width:85px;
+  height:85px;
+  margin:auto auto 15px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  border-radius:23px;
+  background:linear-gradient(145deg,#111c31,#050914);
+  border:1px solid #00eaff35;
+  font-size:38px;
+  font-weight:900;
+  color:#00eaff;
+  box-shadow:inset 0 0 25px #00eaff08;
+}
+
+.company-card h4{
+  font-size:19px;
+}
+
+.company-card p{
+  color:#718096;
+  font-size:12px;
+  margin-top:5px;
+}
+
+/* MODELS */
+.models{
+  display:none;
+  margin-top:35px;
+  animation:show .45s ease;
+}
+
+.models.active{display:block}
+
+.models-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+}
+
+.models-head h3{
+  color:#00eaff;
+  font-size:25px;
+}
+
+.search{
+  width:100%;
+  padding:16px;
+  margin-bottom:25px;
+  border-radius:15px;
+  background:#070d19;
+  color:#fff;
+  border:1px solid #ffffff12;
+  outline:none;
+}
+
+.search:focus{
+  border-color:#00eaff;
+  box-shadow:0 0 20px #00eaff15;
+}
+
+/* PRODUCTS */
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+.product{
+  overflow:hidden;
+  border-radius:24px;
+  background:#ffffff07;
+  border:1px solid #ffffff12;
+  transition:.4s;
+}
+
+.product:hover{
+  transform:translateY(-10px);
+  border-color:#00eaff60;
+  box-shadow:0 20px 50px #00eaff15;
+}
+
+.device-image{
+  height:190px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:
+    radial-gradient(circle,#00eaff15,transparent 65%),
+    #080d18;
+  font-size:75px;
+}
+
+.product-info{
+  padding:18px;
+}
+
+.product-info h4{
+  font-size:18px;
+}
+
+.product-info p{
+  color:#8995aa;
+  font-size:13px;
+  margin-top:5px;
+}
+
+.price{
+  margin:12px 0;
+  color:#00eaff;
+  font-weight:900;
+  font-size:18px;
+}
+
+.order{
+  width:100%;
+  padding:12px;
+  border:0;
+  border-radius:12px;
+  background:#00eaff;
+  color:#001016;
+  font-weight:900;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.order:hover{
+  transform:translateY(-2px);
+  box-shadow:0 0 25px #00eaff55;
+}
+
+/* MAINTENANCE */
+.parts-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:18px;
+}
+
+.part-card{
+  padding:30px 18px;
+  text-align:center;
+  border-radius:23px;
+  background:#ffffff07;
+  border:1px solid #ffffff12;
+  cursor:pointer;
+  transition:.4s;
+}
+
+.part-card:hover{
+  transform:translateY(-10px);
+  border-color:#00eaff65;
+  box-shadow:0 15px 45px #00eaff12;
+}
+
+.part-icon{
+  font-size:48px;
+  margin-bottom:10px;
+}
+
+/* SHIPPING */
+.shipping{
+  text-align:center;
+  padding:45px 25px;
+  border-radius:30px;
+  background:
+    radial-gradient(circle at top,#00eaff12,transparent 55%),
+    #ffffff05;
+  border:1px solid #00eaff25;
+}
+
+.shipping h3{
+  color:#00eaff;
+  font-size:29px;
+}
+
+.shipping p{
+  color:#8c98ac;
+  line-height:2;
+  margin:8px;
+}
+
+/* PAYMENT */
+.payment{
+  max-width:700px;
+  margin:auto;
+  padding:35px;
+  text-align:center;
+  border-radius:28px;
+  background:#ffffff06;
+  border:1px solid #00eaff25;
+}
+
+.wallet{
+  padding:25px;
+  border-radius:20px;
+  background:#00eaff08;
+  border:1px solid #00eaff30;
+}
+
+.wallet small{
+  color:#8995aa;
+}
+
+.wallet strong{
+  display:block;
+  margin-top:8px;
+  color:#00eaff;
+  font-size:29px;
+  direction:ltr;
+  text-shadow:0 0 15px #00eaff55;
+}
+
+/* FORM */
+.form{
+  max-width:750px;
+  margin:auto;
+  padding:30px;
+  border-radius:28px;
+  background:#ffffff06;
+  border:1px solid #ffffff12;
+}
+
+input,select,textarea{
+  width:100%;
+  padding:15px;
+  margin:7px 0;
+  border-radius:14px;
+  background:#070d19;
+  color:#fff;
+  border:1px solid #ffffff12;
+  outline:none;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+  border-color:#00eaff;
+}
+
+textarea{
+  min-height:120px;
+  resize:vertical;
+}
+
+/* LOCATION */
+.address{
+  max-width:700px;
+  margin:auto;
+  text-align:center;
+  padding:30px;
+  border-radius:25px;
+  background:#ffffff06;
+  border:1px solid #ffffff12;
+  line-height:2;
+}
+
+/* SUPPORT */
+.support{
+  position:fixed;
+  left:20px;
+  bottom:20px;
+  z-index:2000;
+}
+
+.support-btn{
+  width:67px;
+  height:67px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:30px;
+  cursor:pointer;
+  background:linear-gradient(135deg,#00eaff,#006eff);
+  box-shadow:0 0 35px #00eaff55;
+  animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+  50%{
+    transform:scale(1.08);
+    box-shadow:0 0 50px #00eaff75;
+  }
+}
+
+.support-menu{
+  position:absolute;
+  bottom:82px;
+  left:0;
+  width:280px;
+  padding:20px;
+  border-radius:22px;
+  background:#07101df7;
+  border:1px solid #00eaff35;
+  backdrop-filter:blur(20px);
+  display:none;
+}
+
+.support-menu.active{
+  display:block;
+  animation:show .3s;
+}
+
+.support-menu a{
+  display:block;
+  padding:12px;
+  margin:7px 0;
+  border-radius:12px;
+  background:#ffffff08;
+  color:#fff;
+  text-decoration:none;
+}
+
+.support-menu a:hover{
+  background:#00eaff15;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:45px 20px;
+  color:#5e6b80;
+  border-top:1px solid #ffffff0c;
+}
+
+footer b{color:#00eaff}
+
+@media(max-width:700px){
+
+  nav{
+    width:94%;
+  }
+
+  nav a{
+    display:none;
+  }
+
+  section{
+    padding:70px 18px;
+  }
+
+  .hero h1{
+    font-size:65px;
+  }
+
+  .title h2{
+    font-size:28px;
+  }
+
+  .catalog-head,
+  .models-head{
+    align-items:flex-start;
+    flex-direction:column;
+    gap:12px;
+  }
+
+  .device-image{
+    height:170px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">EH-Tech ⚡</div>
+
+  <div>
+    <a href="#home">الرئيسية</a>
+    <a href="#services">الخدمات</a>
+    <a href="#payment">الدفع</a>
+    <a href="#order">طلب خدمة</a>
+  </div>
+</nav>
+
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+  <div class="hero-content">
+
+    <div class="badge">⚡ EH-Tech | حلول تقنية</div>
+
+    <h1>EH-Tech</h1>
+
+    <h2>سوفت وير • صيانة • هاردوير</h2>
+
+    <p>
+      خدمات تقنية احترافية وتجربة سهلة لاختيار جهازك
+      وطلب الخدمة والتواصل معنا.
+    </p>
+
+    <a href="#services" class="btn primary">
+      🚀 استكشف الخدمات
+    </a>
+
+    <a href="#order" class="btn secondary">
+      📋 اطلب خدمة
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- SERVICES -->
+<section id="services">
+
+  <div class="title">
+    <h2>🛠️ خدماتنا</h2>
+    <p>اختار القسم اللي محتاجه</p>
+  </div>
+
+  <div class="services">
+
+    <div class="service-card" onclick="openSoftware()">
+      <div class="service-icon">💻</div>
+      <h3>السوفت وير</h3>
+      <p>
+        اختار الشركة ثم موديل جهازك
+        وشاهد تفاصيل الخدمة.
+      </p>
+    </div>
+
+    <div class="service-card" onclick="openMaintenance()">
+      <div class="service-icon">🔧</div>
+      <h3>الصيانة والهاردوير</h3>
+      <p>
+        شاشات، بطاريات، سوكت شحن
+        وقطع غيار.
+      </p>
+    </div>
+
+    <div class="service-card" onclick="openSupport()">
+      <div class="service-icon">🎧</div>
+      <h3>خدمة العملاء</h3>
+      <p>
+        تواصل معنا مباشرة عبر واتساب
+        أو الاتصال.
+      </p>
+    </div>
+
+  </div>
+
+
+  <!-- SOFTWARE -->
+  <div id="softwareCatalog" class="catalog">
+
+    <div class="catalog-head">
+      <h3>💻 شركات الأجهزة</h3>
+
+      <button class="back"
+        onclick="closeCatalog('softwareCatalog')">
+        ✕ إغلاق
+      </button>
+    </div>
+
+    <div class="company-grid">
+
+      <div class="company-card" onclick="openModels('Samsung')">
+        <div class="brand-logo">S</div>
+        <h4>Samsung</h4>
+        <p>اختار موديل جهازك</p>
+      </div>
+
+      <div class="company-card" onclick="openModels('Xiaomi')">
+        <div class="brand-logo">X</div>
+        <h4>Xiaomi</h4>
+        <p>اختار موديل جهازك</p>
+      </div>
+
+      <div class="company-card" onclick="openModels('OPPO')">
+        <div class="brand-logo">O</div>
+        <h4>OPPO</h4>
+        <p>اختار موديل جهازك</p>
+      </div>
+
+      <div class="company-card" onclick="openModels('vivo')">
+        <div class="brand-logo">V</div>
+        <h4>vivo</h4>
+        <p>اختار موديل جهازك</p>
+      </div>
+
+      <div class="company-card" onclick="openModels('Realme')">
+        <div class="brand-logo">R</div>
+        <h4>Realme</h4>
+        <p>اختار موديل جهازك</p>
+      </div>
+
+      <div class="company-card" onclick="openModels('Infinix')">
+        <div class="brand-logo">I</div>
+        <h4>Infinix</h4>
+        <p>اختار موديل جهازك</p>
+      </div>
+
+      <div class="company-card" onclick="openModels('Tecno')">
+        <div class="brand-logo">T</div>
+        <h4>Tecno</h4>
+        <p>اختار موديل جهازك</p>
+      </div>
+
+      <div class="company-card" onclick="openModels('Huawei')">
+        <div class="brand-logo">H</div>
+        <h4>Huawei</h4>
+        <p>اختار موديل جهازك</p>
+      </div>
+
+      <div class="company-card" onclick="openModels('Honor')">
+        <div class="brand-logo">H</div>
+        <h4>Honor</h4>
+        <p>اختار موديل جهازك</p>
+      </div>
+
+    </div>
+
+
+    <div id="modelsBox" class="models">
+
+      <div class="models-head">
+
+        <h3 id="companyTitle">Samsung</h3>
+
+        <button class="back" onclick="backToCompanies()">
+          ← رجوع للشركات
+        </button>
+
+      </div>
+
+      <input
+        class="search"
+        id="modelSearch"
+        placeholder="🔍 ابحث عن موديل جهازك..."
+        oninput="searchModels()"
+      >
+
+      <div id="productGrid" class="product-grid"></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- MAINTENANCE -->
+  <div id="maintenanceCatalog" class="catalog">
+
+    <div class="catalog-head">
+
+      <h3>🔧 أقسام الصيانة</h3>
+
+      <button class="back"
+        onclick="closeCatalog('maintenanceCatalog')">
+        ✕ إغلاق
+      </button>
+
+    </div>
+
+
+    <div class="parts-grid">
+
+      <div class="part-card" onclick="openPart('شاشات')">
+        <div class="part-icon">📱</div>
+        <h3>الشاشات</h3>
+        <p>اختار الشركة والجهاز</p>
+      </div>
+
+      <div class="part-card" onclick="openPart('سوكت الشحن')">
+        <div class="part-icon">🔌</div>
+        <h3>سوكت الشحن</h3>
+        <p>اختار الشركة والجهاز</p>
+      </div>
+
+      <div class="part-card" onclick="openPart('البطاريات')">
+        <div class="part-icon">🔋</div>
+        <h3>البطاريات</h3>
+        <p>اختار الشركة والجهاز</p>
+      </div>
+
+      <div class="part-card" onclick="openPart('السماعات والمايك')">
+        <div class="part-icon">🎙️</div>
+        <h3>السماعات والمايك</h3>
+        <p>اختار الشركة والجهاز</p>
+      </div>
+
+      <div class="part-card" onclick="openPart('الكاميرات')">
+        <div class="part-icon">📷</div>
+        <h3>الكاميرات</h3>
+        <p>اختار الشركة والجهاز</p>
+      </div>
+
+      <div class="part-card" onclick="openPart('قطع الغيار')">
+        <div class="part-icon">⚙️</div>
+        <h3>قطع الغيار</h3>
+        <p>اختار الشركة والجهاز</p>
+      </div>
+
+    </div>
+
+
+    <div id="partCompanies" class="models">
+
+      <div class="models-head">
+
+        <h3 id="partTitle">الشاشات</h3>
+
+        <button class="back" onclick="backToParts()">
+          ← رجوع للأقسام
+        </button>
+
+      </div>
+
+
+      <div class="company-grid">
+
+        <div class="company-card" onclick="openPartModels('Samsung')">
+          <div class="brand-logo">S</div>
+          <h4>Samsung</h4>
+        </div>
+
+        <div class="company-card" onclick="openPartModels('Xiaomi')">
+          <div class="brand-logo">X</div>
+          <h4>Xiaomi</h4>
+        </div>
+
+        <div class="company-card" onclick="openPartModels('OPPO')">
+          <div class="brand-logo">O</div>
+          <h4>OPPO</h4>
+        </div>
+
+        <div class="company-card" onclick="openPartModels('vivo')">
+          <div class="brand-logo">V</div>
+          <h4>vivo</h4>
+        </div>
+
+        <div class="company-card" onclick="openPartModels('Realme')">
+          <div class="brand-logo">R</div>
+          <h4>Realme</h4>
+        </div>
+
+        <div class="company-card" onclick="openPartModels('Infinix')">
+          <div class="brand-logo">I</div>
+          <h4>Infinix</h4>
+        </div>
+
+        <div class="company-card" onclick="openPartModels('Tecno')">
+          <div class="brand-logo">T</div>
+          <h4>Tecno</h4>
+        </div>
+
+        <div class="company-card" onclick="openPartModels('Huawei')">
+          <div class="brand-logo">H</div>
+          <h4>Huawei</h4>
+        </div>
+
+        <div class="company-card" onclick="openPartModels('Honor')">
+          <div class="brand-logo">H</div>
+          <h4>Honor</h4>
+        </div>
+
+      </div>
+
+
+      <div id="partModelsBox" class="models">
+
+        <div class="models-head">
+
+          <h3 id="partCompanyTitle">Samsung</h3>
+
+          <button class="back" onclick="backToPartCompanies()">
+            ← رجوع للشركات
+          </button>
+
+        </div>
+
+        <input
+          class="search"
+          id="partSearch"
+          placeholder="🔍 ابحث عن موديل..."
+          oninput="searchParts()"
+        >
+
+        <div id="partProductGrid" class="product-grid"></div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- SHIPPING -->
+<section>
+
+  <div class="shipping">
+
+    <h3>🚚 شحن داخل الإسكندرية</h3>
+
+    <p>
+      متاح التوصيل داخل الإسكندرية.
+    </p>
+
+    <p>
+      📦 اطلب الخدمة وسنتواصل معك لتأكيد التفاصيل.
+    </p>
+
+    <a href="#order" class="btn primary">
+      📦 اطلب الآن
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- PAYMENT -->
+<section id="payment">
+
+  <div class="title">
+
+    <h2>💳 الدفع بالمحفظة</h2>
+
+    <p>
+      يتم الاتفاق على السعر أولًا ثم التحويل.
+    </p>
+
+  </div>
+
+  <div class="payment">
+
+    <div class="wallet">
+
+      <small>رقم المحفظة</small>
+
+      <strong>01091828049</strong>
+
+    </div>
+
+    <p style="color:#8995aa;line-height:2;margin-top:15px">
+      بعد التحويل يمكنك إرسال إثبات الدفع
+      مع بيانات طلبك.
+    </p>
+
+    <a href="#order" class="btn primary">
+      📸 إرسال إثبات الدفع
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- ORDER -->
+<section id="order">
+
+  <div class="title">
+
+    <h2>📋 طلب خدمة</h2>
+
+    <p>اكتب بياناتك وسنتواصل معك</p>
+
+  </div>
+
+  <div class="form">
+
+    <input id="name" placeholder="👤 الاسم">
+
+    <input id="phone" placeholder="📱 رقم الهاتف">
+
+    <select id="service">
+
+      <option value="">اختر الخدمة</option>
+      <option>💻 سوفت وير</option>
+      <option>📱 شاشة</option>
+      <option>🔌 سوكت شحن</option>
+      <option>🔋 بطارية</option>
+      <option>⚙️ قطعة غيار</option>
+      <option>🔧 صيانة</option>
+
+    </select>
+
+    <input
+      id="details"
+      placeholder="📱 نوع الجهاز + الموديل + تفاصيل الطلب"
+    >
+
+    <input
+      id="transaction"
+      placeholder="🔢 رقم عملية التحويل - اختياري"
+    >
+
+    <label style="display:block;margin-top:10px">
+      📸 إثبات الدفع - اختياري
+    </label>
+
+    <input
+      id="proof"
+      type="file"
+      accept="image/*"
+    >
+
+    <button
+      class="btn primary"
+      onclick="sendOrder()"
+    >
+      🚀 إرسال الطلب
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- LOCATION -->
+<section>
+
+  <div class="title">
+
+    <h2>📍 موقعنا</h2>
+
+    <p>زورنا أو تواصل معنا</p>
+
+  </div>
+
+  <div class="address">
+
+    📍
+    <strong>
+      21 شارع ابن سالم، بجوار مسجد الأبرار
+    </strong>
+
+    <br><br>
+
+    <a
+      class="btn primary"
+      target="_blank"
+      href="https://www.google.com/maps/search/?api=1&query=21%20شارع%20ابن%20سالم%20بجوار%20مسجد%20الأبرار"
+    >
+      🗺️ فتح الموقع
+    </a>
+
+  </div>
+
+</section>
+
+
+<footer>
+  © 2026 <b>EH-Tech</b> — جميع الحقوق محفوظة
+</footer>
+
+
+<!-- SUPPORT -->
+<div class="support">
+
+  <div class="support-menu" id="supportMenu">
+
+    <h3>🎧 خدمة العملاء</h3>
+
+    <a href="https://wa.me/201091828049" target="_blank">
+      💬 واتساب
+    </a>
+
+    <a href="tel:01091828049">
+      📞 اتصال
+    </a>
+
+    <a href="#order">
+      📋 طلب خدمة
+    </a>
+
+    <a href="#payment">
+      💳 الدفع
+    </a>
+
+  </div>
+
+  <div
+    class="support-btn"
+    onclick="toggleSupport()"
+  >
+    🎧
+  </div>
+
+</div>
+
+
+<script>
+
+/* =========================
+   موديلات الأجهزة
+========================= */
+
+const devices = {
+
+Samsung:[
+"Galaxy A01","Galaxy A02","Galaxy A03","Galaxy A04","Galaxy A05","Galaxy A06",
+"Galaxy A10","Galaxy A11","Galaxy A12","Galaxy A13","Galaxy A14","Galaxy A15",
+"Galaxy A16","Galaxy A20","Galaxy A21s","Galaxy A22","Galaxy A23","Galaxy A24",
+"Galaxy A25","Galaxy A30","Galaxy A31","Galaxy A32","Galaxy A33","Galaxy A34",
+"Galaxy A35","Galaxy A50","Galaxy A51","Galaxy A52","Galaxy A53","Galaxy A54",
+"Galaxy A55","Galaxy A70","Galaxy A71","Galaxy A72",
+"Galaxy S20","Galaxy S20+","Galaxy S20 Ultra",
+"Galaxy S21","Galaxy S21+","Galaxy S21 Ultra",
+"Galaxy S22","Galaxy S22+","Galaxy S22 Ultra",
+"Galaxy S23","Galaxy S23+","Galaxy S23 Ultra",
+"Galaxy S24","Galaxy S24+","Galaxy S24 Ultra",
+"Galaxy S25","Galaxy S25+","Galaxy S25 Ultra",
+"Galaxy Note 10","Galaxy Note 10+","Galaxy Note 20","Galaxy Note 20 Ultra",
+"Galaxy M11","Galaxy M12","Galaxy M13","Galaxy M14","Galaxy M15",
+"Galaxy M21","Galaxy M22","Galaxy M23","Galaxy M31","Galaxy M32","Galaxy M33","Galaxy M34",
+"Galaxy M51","Galaxy M52","Galaxy M53","Galaxy M54"
+],
+
+Xiaomi:[
+"Redmi 9","Redmi 9A","Redmi 9C","Redmi 10","Redmi 10C",
+"Redmi 12","Redmi 13","Redmi 14C",
+"Redmi Note 8","Redmi Note 9","Redmi Note 10",
+"Redmi Note 11","Redmi Note 12","Redmi Note 13","Redmi Note 14",
+"Redmi Note 12 Pro","Redmi Note 13 Pro","Redmi Note 13 Pro+",
+"Poco X3","Poco X3 Pro","Poco X4 Pro","Poco X5","Poco X5 Pro",
+"Poco X6","Poco X6 Pro","Poco X7","Poco X7 Pro",
+"Poco M4","Poco M5","Poco M6","Poco M6 Pro"
+],
+
+OPPO:[
+"A15","A16","A17","A18","A31","A37","A38","A52","A53","A54",
+"A55","A57","A58","A59","A74","A76","A77","A78","A79",
+"A92","A94","A96","A98",
+"Reno 4","Reno 5","Reno 6","Reno 7","Reno 8","Reno 10","Reno 11","Reno 12",
+"F9","F11","F15","F17","F19","F21"
+],
+
+vivo:[
+"Y11","Y12","Y15","Y16","Y17","Y19","Y20","Y21","Y22","Y22s",
+"Y27","Y28","Y31","Y33","Y35","Y36","Y37","Y50","Y51","Y52",
+"Y53","Y55","Y73","Y76","Y77","Y100","Y200",
+"V19","V20","V21","V23","V25","V27","V29","V30"
+],
+
+Realme:[
+"C11","C12","C15","C20","C21","C25","C30","C31","C33","C35",
+"C51","C53","C55","C55s","C67","C75",
+"Realme 5","Realme 6","Realme 7","Realme 8","Realme 9",
+"Realme 10","Realme 11","Realme 12","Realme 13",
+"GT","GT Neo 2","GT Neo 3","GT Neo 5"
+],
+
+Infinix:[
+"Hot 9","Hot 10","Hot 11","Hot 12","Hot 20","Hot 30","Hot 40","Hot 50",
+"Note 8","Note 10","Note 11","Note 12","Note 30","Note 40",
+"Smart 5","Smart 6","Smart 7","Smart 8","Smart 9",
+"Zero 8","Zero 20","Zero 30"
+],
+
+Tecno:[
+"Spark 6","Spark 7","Spark 8","Spark 9","Spark 10","Spark 20","Spark 30",
+"Camon 15","Camon 16","Camon 17","Camon 18","Camon 19","Camon 20","Camon 30",
+"Pova 2","Pova 3","Pova 4","Pova 5","Pova 6"
+],
+
+Huawei:[
+"Y5","Y6","Y7","Y8","Y9",
+"Y9 Prime","Y9a","Y7a","Y8p",
+"Nova 3","Nova 4","Nova 5","Nova 7","Nova 8","Nova 9","Nova 10","Nova 11",
+"P30","P30 Pro","P40","P40 Pro"
+],
+
+Honor:[
+"Honor 8","Honor 9","Honor 10","Honor 20","Honor 50","Honor 70",
+"X5","X6","X7","X8","X9","X9a","X9b",
+"X10","X20","X30","X40","X50",
+"Magic 4","Magic 5","Magic 6"
+]
+
+};
+
+
+/* =========================
+   فتح السوفت وير
+========================= */
+
+let currentCompany="";
+
+function openSoftware(){
+
+  document
+  .getElementById("maintenanceCatalog")
+  .classList.remove("active");
+
+  document
+  .getElementById("softwareCatalog")
+  .classList.add("active");
+
+  document
+  .getElementById("softwareCatalog")
+  .scrollIntoView({
+    behavior:"smooth"
+  });
+
+}
+
+
+/* =========================
+   الشركات → الموديلات
+========================= */
+
+function openModels(company){
+
+  currentCompany=company;
+
+  document
+  .getElementById("companyTitle")
+  .textContent=
+  "📱 "+company;
+
+  document
+  .getElementById("modelsBox")
+  .classList.add("active");
+
+  document
+  .getElementById("modelSearch")
+  .value="";
+
+  renderModels();
+
+}
+
+
+function renderModels(){
+
+  const grid=
+  document.getElementById("productGrid");
+
+  grid.innerHTML="";
+
+  const list=
+  devices[currentCompany] || [];
+
+  list.forEach(model=>{
+
+    const card=
+    document.createElement("div");
+
+    card.className="product";
+
+    card.innerHTML=`
+
+      <div class="device-image">
+        📱
+      </div>
+
+      <div class="product-info">
+
+        <h4>${currentCompany} ${model}</h4>
+
+        <p>
+          💻 خدمة سوفت وير
+        </p>
+
+        <div class="price">
+          السعر: تواصل معنا
+        </div>
+
+        <button
+          class="order"
+          onclick="orderProduct('${currentCompany} ${model} - سوفت وير')"
+        >
+          📲 اطلب الخدمة
+        </button>
+
+      </div>
+
+    `;
+
+    grid.appendChild(card);
+
+  });
+
+}
+
+
+function searchModels(){
+
+  const value=
+  document
+  .getElementById("modelSearch")
+  .value
+  .toLowerCase();
+
+  document
+  .querySelectorAll("#productGrid .product")
+  .forEach(card=>{
+
+    card.style.display=
+    card.innerText
+    .toLowerCase()
+    .includes(value)
+    ? "block"
+    : "none";
+
+  });
+
+}
+
+
+function backToCompanies(){
+
+  document
+  .getElementById("modelsBox")
+  .classList.remove("active");
+
+}
+
+
+/* =========================
+   الصيانة
+========================= */
+
+let currentPart="";
+
+function openMaintenance(){
+
+  document
+  .getElementById("softwareCatalog")
+  .classList.remove("active");
+
+  document
+  .getElementById("maintenanceCatalog")
+  .classList.add("active");
+
+  document
+  .getElementById("maintenanceCatalog")
+  .scrollIntoView({
+    behavior:"smooth"
+  });
+
+}
+
+
+function openPart(part){
+
+  currentPart=part;
+
+  document
+  .getElementById("partTitle")
+  .textContent=
+  "🔧 "+part;
+
+  document
+  .getElementById("partCompanies")
+  .classList.add("active");
+
+}
+
+
+function backToParts(){
+
+  document
+  .getElementById("partCompanies")
+  .classList.remove("active");
+
+  document
+  .getElementById("partModelsBox")
+  .classList.remove("active");
+
+}
+
+
+function openPartModels(company){
+
+  document
+  .getElementById("partCompanyTitle")
+  .textContent=
+  "📱 "+company;
+
+  document
+  .getElementById("partModelsBox")
+  .classList.add("active");
+
+  document
+  .getElementById("partSearch")
+  .value="";
+
+  renderPartModels(company);
+
+}
+
+
+function renderPartModels(company){
+
+  const grid=
+  document.getElementById("partProductGrid");
+
+  grid.innerHTML="";
+
+  const list=
+  devices[company] || [];
+
+  list.forEach(model=>{
+
+    const card=
+    document.createElement("div");
+
+    card.className="product";
+
+    card.innerHTML=`
+
+      <div class="device-image">
+        🔧
+      </div>
+
+      <div class="product-info">
+
+        <h4>${company} ${model}</h4>
+
+        <p>
+          🔧 ${currentPart}
+        </p>
+
+        <div class="price">
+          السعر: تواصل معنا
+        </div>
+
+        <button
+          class="order"
+          onclick="orderProduct('${company} ${model} - ${currentPart}')"
+        >
+          📲 اطلب الآن
+        </button>
+
+      </div>
+
+    `;
+
+    grid.appendChild(card);
+
+  });
+
+}
+
+
+function searchParts(){
+
+  const value=
+  document
+  .getElementById("partSearch")
+  .value
+  .toLowerCase();
+
+  document
+  .querySelectorAll("#partProductGrid .product")
+  .forEach(card=>{
+
+    card.style.display=
+    card.innerText
+    .toLowerCase()
+    .includes(value)
+    ? "block"
+    : "none";
+
+  });
+
+}
+
+
+function backToPartCompanies(){
+
+  document
+  .getElementById("partModelsBox")
+  .classList.remove("active");
+
+}
+
+
+/* =========================
+   طلب الخدمة
+========================= */
+
+function orderProduct(product){
+
+  const message=
+`🚀 طلب من EH-Tech
+
+📦 الخدمة:
+${product}
+
+أريد معرفة السعر والتفاصيل.`;
+
+  window.open(
+    "https://wa.me/201091828049?text="+
+    encodeURIComponent(message),
+    "_blank"
+  );
+
+}
+
+
+/* =========================
+   خدمة العملاء
+========================= */
+
+function toggleSupport(){
+
+  document
+  .getElementById("supportMenu")
+  .classList
+  .toggle("active");
+
+}
+
+
+function openSupport(){
+
+  document
+  .getElementById("supportMenu")
+  .classList
+  .add("active");
+
+}
+
+
+/* =========================
+   إغلاق
+========================= */
+
+function closeCatalog(id){
+
+  document
+  .getElementById(id)
+  .classList
+  .remove("active");
+
+}
+
+
+/* =========================
+   إرسال الطلب
+========================= */
+
+function sendOrder(){
+
+  const name=
+  document.getElementById("name").value;
+
+  const phone=
+  document.getElementById("phone").value;
+
+  const service=
+  document.getElementById("service").value;
+
+  const details=
+  document.getElementById("details").value;
+
+  const transaction=
+  document.getElementById("transaction").value;
+
+  if(!name || !phone || !service){
+
+    alert(
+      "⚠️ اكتب الاسم ورقم الهاتف واختر الخدمة أولاً."
+    );
+
+    return;
+  }
+
+  const message=
+`🚀 طلب جديد - EH-Tech
+
+👤 الاسم:
+${name}
+
+📱 الهاتف:
+${phone}
+
+🛠️ الخدمة:
+${service}
+
+📱 الجهاز والتفاصيل:
+${details || "لم يتم تحديده"}
+
+🔢 رقم العملية:
+${transaction || "غير موجود"}
+
+📸 إثبات الدفع:
+سيتم إرساله بشكل منفصل إذا لزم الأمر.`;
+
+  window.open(
+    "https://wa.me/201091828049?text="+
+    encodeURIComponent(message),
+    "_blank"
+  );
+
+}
+
+</script>
+
+</body>
+</html>
