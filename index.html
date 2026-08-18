@@ -919,5 +919,298 @@ document.getElementById("supportMenu").classList.toggle("active");
 
 }
 
-</style>>
+</<!-- TIKTOK EH-TECH -->
+<section class="tiktok-section">
+
+  <div class="tiktok-card">
+
+    <div class="tiktok-glow"></div>
+
+    <div class="tiktok-icon">
+      <svg viewBox="0 0 48 48">
+        <path fill="#25F4EE" d="M29.5 8.5c1.4 4.4 4.2 7.1 8.5 7.8v5.8c-3.1-.1-6-1-8.5-2.6v12.2c0 6.2-4.6 10.3-10.2 10.3-5.2 0-9.3-3.8-9.3-9.1 0-5.6 4.4-9.6 10.1-9.6.7 0 1.4.1 2 .2v5.8c-.6-.2-1.2-.3-1.8-.3-2.4 0-4.2 1.5-4.2 3.8 0 2.1 1.6 3.5 3.6 3.5 2.3 0 3.8-1.5 3.8-4.5V8.5h6z"/>
+        <path fill="#FE2C55" d="M27 6.5c1.4 4.4 4.2 7.1 8.5 7.8v5.8c-3.1-.1-6-1-8.5-2.6v12.2c0 6.2-4.6 10.3-10.2 10.3-.9 0-1.8-.1-2.6-.4 1.1.8 2.5 1.2 4 1.2 5.6 0 10.2-4.1 10.2-10.3V18c2.5 1.6 5.4 2.5 8.5 2.6v-5.8c-4.3-.7-7.1-3.4-8.5-7.8H27z"/>
+        <path fill="#fff" d="M24.8 7.5v22.2c0 3-1.5 4.5-3.8 4.5-1.2 0-2.3-.5-3-1.3.5.2 1 .3 1.6.3 2.3 0 3.8-1.5 3.8-4.5V7.5h1.4z"/>
+      </svg>
+    </div>
+
+    <div class="tiktok-content">
+
+      <span>EH-TECH COMMUNITY</span>
+
+      <h2>تابع EH-Tech على TikTok 🎵</h2>
+
+      <p>
+        تابع أحدث محتوى EH-Tech، شروحات السوفت وير،
+        نصائح الصيانة، عروضنا وكل جديد عندنا.
+      </p>
+
+      <div class="tiktok-features">
+        <div>📱 صيانة وبرمجة</div>
+        <div>💻 سوفت وير</div>
+        <div>🔧 هارد وير</div>
+        <div>🔥 محتوى حصري</div>
+      </div>
+
+      <a
+        href="https://www.tiktok.com/@ehtech.eg"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="tiktok-btn"
+      >
+        <span>♪</span>
+        تابعنا على TikTok
+        <b>↗</b>
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+
+.tiktok-section{
+  padding:80px 7%;
+}
+
+.tiktok-card{
+  position:relative;
+  overflow:hidden;
+  max-width:1000px;
+  margin:auto;
+  padding:55px 45px;
+  display:flex;
+  align-items:center;
+  gap:40px;
+  border-radius:35px;
+
+  background:
+    radial-gradient(circle at 15% 50%, #00f2ea20, transparent 35%),
+    radial-gradient(circle at 85% 50%, #ff005020, transparent 35%),
+    linear-gradient(135deg,#07101d,#02050b);
+
+  border:1px solid #00f2ea45;
+
+  box-shadow:
+    0 20px 80px #00f2ea12,
+    inset 0 0 50px #ff005008;
+
+  transition:.5s;
+}
+
+.tiktok-card:hover{
+  transform:translateY(-8px);
+  border-color:#00f2ea80;
+  box-shadow:
+    0 30px 100px #00f2ea20,
+    0 0 50px #ff005015;
+}
+
+.tiktok-glow{
+  position:absolute;
+  width:300px;
+  height:300px;
+  border-radius:50%;
+
+  background:linear-gradient(135deg,#00f2ea,#ff0050);
+
+  filter:blur(120px);
+  opacity:.12;
+
+  left:-120px;
+  top:-80px;
+
+  animation:tiktokGlow 5s infinite alternate;
+}
+
+@keyframes tiktokGlow{
+  from{transform:scale(1) rotate(0deg);}
+  to{transform:scale(1.4) rotate(20deg);}
+}
+
+.tiktok-icon{
+  min-width:130px;
+  width:130px;
+  height:130px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:35px;
+
+  background:radial-gradient(circle at 35% 25%,#252525,#050505 65%);
+
+  border:1px solid #ffffff18;
+
+  box-shadow:
+    0 0 35px #ff005040,
+    8px 8px 0 #00f2ea,
+    -5px -5px 0 #ff0050;
+
+  position:relative;
+  z-index:2;
+
+  animation:tiktokFloat 3s ease-in-out infinite;
+}
+
+.tiktok-icon svg{
+  width:78px;
+  height:78px;
+
+  filter:
+    drop-shadow(4px 4px 0 #00f2ea55)
+    drop-shadow(-3px -3px 0 #ff005055);
+
+  transition:.4s;
+}
+
+.tiktok-card:hover .tiktok-icon svg{
+  transform:scale(1.12) rotate(-4deg);
+}
+
+@keyframes tiktokFloat{
+  50%{
+    transform:translateY(-8px) rotate(2deg);
+  }
+}
+
+.tiktok-content{
+  position:relative;
+  z-index:2;
+}
+
+.tiktok-content span{
+  color:#00f2ea;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:2px;
+}
+
+.tiktok-content h2{
+  font-size:32px;
+  margin:8px 0;
+
+  background:linear-gradient(90deg,#fff,#00f2ea,#ff0050);
+
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.tiktok-content p{
+  color:#8e9bb0;
+  line-height:2;
+  max-width:650px;
+}
+
+.tiktok-features{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:20px 0;
+}
+
+.tiktok-features div{
+  padding:9px 14px;
+  border-radius:12px;
+  background:#ffffff08;
+  border:1px solid #ffffff10;
+  color:#b8c4d8;
+  font-size:12px;
+  transition:.3s;
+}
+
+.tiktok-features div:hover{
+  transform:translateY(-3px);
+  border-color:#00f2ea60;
+  background:#00f2ea10;
+}
+
+.tiktok-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+
+  padding:14px 22px;
+  border-radius:15px;
+
+  text-decoration:none;
+  color:#fff;
+  font-weight:900;
+
+  background:linear-gradient(135deg,#ff0050,#111,#00f2ea);
+
+  box-shadow:0 10px 30px #ff005030;
+
+  transition:.35s;
+}
+
+.tiktok-btn span{
+  width:25px;
+  height:25px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:50%;
+
+  background:#fff;
+  color:#111;
+
+  font-size:17px;
+}
+
+.tiktok-btn b{
+  font-size:18px;
+  transition:.3s;
+}
+
+.tiktok-btn:hover{
+  transform:translateY(-5px) scale(1.03);
+  box-shadow:0 15px 40px #ff005055;
+}
+
+.tiktok-btn:hover b{
+  transform:translate(3px,-3px);
+}
+
+@media(max-width:700px){
+
+  .tiktok-card{
+    padding:35px 22px;
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .tiktok-icon{
+    min-width:105px;
+    width:105px;
+    height:105px;
+    border-radius:28px;
+  }
+
+  .tiktok-icon svg{
+    width:65px;
+    height:65px;
+  }
+
+  .tiktok-content h2{
+    font-size:25px;
+  }
+
+  .tiktok-features{
+    justify-content:center;
+  }
+
+  .tiktok-btn{
+    justify-content:center;
+    width:100%;
+  }
+
+}
+
+  </style>>>
                       </html>
