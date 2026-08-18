@@ -538,5 +538,386 @@ document.getElementById("supportMenu").classList.toggle("active");
 }
 </script>
 
-</body>
+</body<!-- FACEBOOK EH-TECH -->
+<section class="facebook-section">
+
+  <div class="facebook-card">
+
+    <div class="facebook-glow"></div>
+
+    <div class="facebook-icon">
+      f
+    </div>
+
+    <div class="facebook-content">
+
+      <span>EH-TECH COMMUNITY</span>
+
+      <h2>تابع EH-Tech على فيسبوك 🚀</h2>
+
+      <p>
+        تابع آخر أخبارنا، خدمات السوفت وير والهارد وير،
+        عروض الصيانة وكل جديد من EH-Tech.
+      </p>
+
+      <div class="facebook-features">
+        <div>📱 صيانة وبرمجة</div>
+        <div>💻 سوفت وير</div>
+        <div>🔧 هارد وير</div>
+        <div>🚚 خدمة داخل الإسكندرية</div>
+      </div>
+
+      <a
+        href="https://www.facebook.com/share/18LPjZuPBM/"
+        target="_blank"
+        class="facebook-btn"
+      >
+        <span>f</span>
+        تابعنا على Facebook
+        <b>↗</b>
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<style>
+
+/* FACEBOOK SECTION */
+
+.facebook-section{
+  padding:80px 7%;
+}
+
+.facebook-card{
+  position:relative;
+  overflow:hidden;
+  max-width:1000px;
+  margin:auto;
+  padding:55px 45px;
+  display:flex;
+  align-items:center;
+  gap:40px;
+  border-radius:35px;
+
+  background:
+    radial-gradient(
+      circle at 15% 50%,
+      #1877f225,
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #07101d,
+      #02050b
+    );
+
+  border:1px solid #1877f250;
+
+  box-shadow:
+    0 20px 80px #1877f215,
+    inset 0 0 50px #1877f208;
+
+  transition:.5s;
+}
+
+.facebook-card:hover{
+  transform:translateY(-8px);
+
+  border-color:#1877f280;
+
+  box-shadow:
+    0 30px 100px #1877f225,
+    0 0 50px #1877f115;
+}
+
+
+/* GLOW */
+
+.facebook-glow{
+  position:absolute;
+  width:300px;
+  height:300px;
+  border-radius:50%;
+
+  background:#1877f2;
+
+  filter:blur(120px);
+
+  opacity:.12;
+
+  left:-120px;
+  top:-80px;
+
+  animation:facebookGlow 5s infinite alternate;
+}
+
+@keyframes facebookGlow{
+
+  from{
+    transform:scale(1);
+  }
+
+  to{
+    transform:scale(1.4);
+  }
+
+}
+
+
+/* ICON */
+
+.facebook-icon{
+
+  min-width:130px;
+  height:130px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:35px;
+
+  font-family:Arial,sans-serif;
+  font-size:85px;
+  font-weight:bold;
+
+  color:white;
+
+  background:
+    linear-gradient(
+      145deg,
+      #1877f2,
+      #0757c9
+    );
+
+  box-shadow:
+    0 0 40px #1877f255,
+    inset 0 0 25px #ffffff15;
+
+  animation:facebookFloat 3s ease-in-out infinite;
+
+  position:relative;
+  z-index:2;
+}
+
+@keyframes facebookFloat{
+
+  50%{
+    transform:translateY(-8px) rotate(2deg);
+  }
+
+}
+
+
+/* CONTENT */
+
+.facebook-content{
+  position:relative;
+  z-index:2;
+}
+
+.facebook-content span{
+
+  color:#5fa3ff;
+
+  font-size:12px;
+
+  font-weight:900;
+
+  letter-spacing:2px;
+}
+
+.facebook-content h2{
+
+  font-size:32px;
+
+  margin:8px 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      #fff,
+      #65aaff
+    );
+
+  -webkit-background-clip:text;
+
+  color:transparent;
+}
+
+.facebook-content p{
+
+  color:#8e9bb0;
+
+  line-height:2;
+
+  max-width:650px;
+}
+
+
+/* FEATURES */
+
+.facebook-features{
+
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:10px;
+
+  margin:20px 0;
+}
+
+.facebook-features div{
+
+  padding:9px 14px;
+
+  border-radius:12px;
+
+  background:#ffffff08;
+
+  border:1px solid #ffffff10;
+
+  color:#b8c4d8;
+
+  font-size:12px;
+
+  transition:.3s;
+}
+
+.facebook-features div:hover{
+
+  transform:translateY(-3px);
+
+  border-color:#1877f260;
+
+  background:#1877f210;
+}
+
+
+/* BUTTON */
+
+.facebook-btn{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:12px;
+
+  padding:14px 22px;
+
+  border-radius:15px;
+
+  text-decoration:none;
+
+  color:#fff;
+
+  font-weight:900;
+
+  background:
+    linear-gradient(
+      135deg,
+      #1877f2,
+      #0757c9
+    );
+
+  box-shadow:
+    0 10px 30px #1877f230;
+
+  transition:.35s;
+}
+
+.facebook-btn span{
+
+  width:25px;
+  height:25px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:50%;
+
+  background:#fff;
+
+  color:#1877f2;
+
+  font-family:Arial,sans-serif;
+
+  font-size:17px;
+
+  letter-spacing:0;
+}
+
+.facebook-btn b{
+
+  font-size:18px;
+
+  transition:.3s;
+}
+
+.facebook-btn:hover{
+
+  transform:translateY(-5px) scale(1.03);
+
+  box-shadow:
+    0 15px 40px #1877f255;
+}
+
+.facebook-btn:hover b{
+
+  transform:translate(3px,-3px);
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+  .facebook-card{
+
+    padding:35px 22px;
+
+    flex-direction:column;
+
+    text-align:center;
+  }
+
+  .facebook-icon{
+
+    min-width:105px;
+    width:105px;
+    height:105px;
+
+    font-size:70px;
+
+    border-radius:28px;
+  }
+
+  .facebook-content h2{
+
+    font-size:25px;
+  }
+
+  .facebook-features{
+
+    justify-content:center;
+  }
+
+  .facebook-btn{
+
+    justify-content:center;
+
+    width:100%;
+  }
+
+}
+
+</style>>
                       </html>
